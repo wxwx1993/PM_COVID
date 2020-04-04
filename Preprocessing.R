@@ -2,13 +2,13 @@ library("dplyr")
 library(stringr)
 library(RCurl)
 
-
+date_of_study = "04-03-2020"
 # Historical data
 covid_hist = read.csv(text=getURL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-30-2020.csv"))
 covid_us_hist = subset(covid_hist, Country_Region == "US" & is.na(FIPS)==F)
 
 # Import outcome data from JHU CSSE
-covid = read.csv(text=getURL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-30-2020.csv"))
+covid = read.csv(text=getURL(paste0("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/",date_of_study,".csv")))
 covid_us = subset(covid,Country_Region == "US" & is.na(FIPS)!=T)
 covid_us = rbind(covid_us,subset(covid_us_hist, (!(FIPS %in% covid_us$FIPS))  & Confirmed == 0 & Deaths == 0 & is.na(FIPS)==F))
 
@@ -21,7 +21,7 @@ county_census = read.csv(text=getURL("https://raw.githubusercontent.com/wxwx1993
 county_brfss = read.csv(text=getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/brfss_county_interpolated.csv"))
 
 state_test = read.csv(text=getURL("https://covidtracking.com/api/states/daily.csv"))
-state_test = subset(state_test, date =="20200330")[,-20]
+state_test = subset(state_test, date ==paste0(substring(str_remove_all(date_of_study, "-"),5,8),substring(str_remove_all(date_of_study, "-"),1,4)))[,-20]
 statecode = read.csv(text=getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/statecode.csv"))
 
 hospitals = read.csv(text=getURL("https://opendata.arcgis.com/datasets/6ac5e325468c4cb9b905f1728d6fbf0f_0.csv?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D"))
