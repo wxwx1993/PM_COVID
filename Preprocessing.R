@@ -25,6 +25,7 @@ state_test = subset(state_test, date ==paste0(substring(str_remove_all(date_of_s
 statecode = read.csv(text=getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/statecode.csv"))
 
 hospitals = read.csv(text=getURL("https://opendata.arcgis.com/datasets/6ac5e325468c4cb9b905f1728d6fbf0f_0.csv?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D"))
+hospitals$BEDS[hospitals$BEDS < 0] = 0
 
 county_base_mortality = read.table(text=getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_base_mortality.txt"), sep = "",header = T)
 county_old_mortality = read.table(text=getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_old_mortality.txt"), sep = "",header = T)
@@ -57,7 +58,7 @@ county_hospitals_aggregated = hospitals %>%
   group_by(COUNTYFIPS) %>%
   summarise(beds = sum(BEDS))
 
-county_census_aggregated2 = subset(county_census, year==2010)
+county_census_aggregated2 = subset(county_census, year==2016)
 county_census_aggregated2$q_popdensity = 1
 quantile_popdensity = quantile(county_census_aggregated2$popdensity,c(0.25,0.5,0.75))
 county_census_aggregated2$q_popdensity[county_census_aggregated2$popdensity<=quantile_popdensity[1]] = 1
