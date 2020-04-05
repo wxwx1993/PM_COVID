@@ -88,6 +88,6 @@ aggregate_pm_census_cdc_test = aggregate_pm_census_cdc_test %>%
          totalTestResults_county = population_frac_county*totalTestResults)
 
 
-aggregate_pm_census_cdc_test_beds = merge(aggregate_pm_census_cdc_test,county_hospitals_aggregated,by.x = "fips",,by.y = "COUNTYFIPS",all.x = T)
+aggregate_pm_census_cdc_test_beds = merge(aggregate_pm_census_cdc_test,county_hospitals_aggregated,by.x = "fips",by.y = "COUNTYFIPS",all.x = T)
 
 
