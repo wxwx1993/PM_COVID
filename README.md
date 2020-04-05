@@ -23,6 +23,9 @@ County-level aggregation: https://github.com/NSAPH/data_requests/tree/master/req
 * Email: fdominic@hsph.harvard.edu
 
 <b>Terms of Use:</b><br>
-
-This GitHub repo and its contents herein, including all data, link to data source, and analysis code. The analyses rely upon publicly available data from multiple sources, that do not always agree. We hereby disclaim any and all representations and warranties with respect to the Website, including accuracy, fitness for use, and merchantability.
+Authors/funders retain copyright (where applicable) of code on this Github repo and the article posted on medRxiv (under review). Anyone who wishes to share, reuse, remix, or adapt this material must obtain permission from the corresponding author. By using the contents on this Github repo and the article, you agree to cite:
+'''r
+Wu, X., Nethery, C.R., Sabath, M.B., Braun, D. and Dominici, F., 2020. Exposure to air pollution and COVID-19 mortality in the United States. medRxiv.
+'''
+This GitHub repo and its contents herein, including data, link to data source, and analysis code that are intended solely for reproducing the results in the manuscript "Exposure to air pollution and COVID-19 mortality in the United States". The analyses rely upon publicly available data from multiple sources, that do not always agree. We hereby disclaim any and all representations and warranties with respect to the site, including accuracy, fitness for use, and merchantability. By using this site, its content, information, and software you agree to assume all risks associated with your use or transfer of information and/or software. You agree to hold the authors harmless from any claims relating to the use of this site.
 
