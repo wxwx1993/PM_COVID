@@ -1,11 +1,8 @@
 library("dplyr")
 library("pscl")
 library("MASS")
-library("R2admb")
-library("glmmADMB")
-library("nonnest2")
 library(NBZIMM)
-
+library("lme4")
 
 # main analysis
 glmm.zinb.off = glmm.zinb(fixed = Deaths ~ mean_pm25 +scale(poverty) + scale(popdensity)  +scale(medianhousevalue) 
