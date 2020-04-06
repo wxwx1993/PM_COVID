@@ -9,10 +9,12 @@ Analyses.R includes the code to implement zero-inflated negative binomial mixed 
 Figure.R includes the code to generate figures in Main Text and Supplementary Materials.
 
 <b>Additional Data Source: </b><br>
-The county-level PM2.5 exposure data can be created via PM2.5 predictions from The Atmospheric Composition Analysis Group at Dalhouse University. Please visit the detailed instructions below
+The county-level PM2.5 exposure data can be created via PM2.5 predictions from The Atmospheric Composition Analysis Group at Dalhouse University (http://fizz.phys.dal.ca/~atmos/martin/). Please visit the detailed instructions below
 
 * Download PM25 predictions: https://github.com/NSAPH/data_requests/tree/master/request_projects/oct2019_download_rm_pm/ <br>
 * County-level aggregation: https://github.com/NSAPH/data_requests/tree/master/request_projects/mar2020_rough_county_confounders/ <br>
+
+We acknowedge Randall Martin and members from The Atmospheric Composition Analysis Group at Dalhouse University to provide open-source datasets.
 
 <b>Contact Us: </b><br>
 * Email: fdominic@hsph.harvard.edu
