@@ -35,7 +35,7 @@ We thank Randall Martin and the members of the Atmospheric Composition Analysis 
 
 The seasonal temperature and relative humidity data can be created via 4km × 4km temperature and relative humidity predictions from Gridmet via google earth engine (https://developers.google.com/earth-engine/datasets/catalog/IDAHO_EPSCOR_GRIDMET).
 
-We acknowedge John Abatzoglou and members from Climatology Lab at University of Idaho to provide open-source datasets.
+We thank John Abatzoglou and members of the Climatology Lab at University of Idaho for providing the GRIDMET open-source datasets.
 
 Additional data required by the analyses can be directly extracted from data sources:
 
@@ -43,7 +43,7 @@ Additional data required by the analyses can be directly extracted from data sou
 * Homeland Infrastructure Foundation- Level Data (HIFLD): https://hifld-geoplatform.opendata.arcgis.com/datasets/hospitals <br>
 * The COVID tracking project: https://covidtracking.com/ <br>
 
-We acknowedge all of them to provide open-source datasets.
+We thank all of them for making their data public and for enabling this research to be possible.
 
 
 <b>Contact Us: </b><br>
