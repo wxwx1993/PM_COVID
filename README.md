@@ -34,6 +34,15 @@ The seasonal temperature and relative humidity data can be created via 4km × 4k
 
 We acknowedge John Abatzoglou and members from Climatology Lab at University of Idaho to provide open-source datasets.
 
+Additional data required by the analyses can be directly extracted from data sources:
+
+* Johns Hopkins University the Center for Systems Science and Engineering (CSSE) Coronavirus Resource Center: https://coronavirus.jhu.edu/ <br>
+* Homeland Infrastructure Foundation- Level Data (HIFLD): https://hifld-geoplatform.opendata.arcgis.com/datasets/hospitals <br>
+* The COVID tracking project: https://covidtracking.com/ <br>
+
+We acknowedge all of them to provide open-source datasets.
+
+
 <b>Contact Us: </b><br>
 * Email: fdominic@hsph.harvard.edu
 
