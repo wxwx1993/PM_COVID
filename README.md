@@ -14,6 +14,8 @@ The county-level PM2.5 exposure data can be created via PM2.5 predictions from T
 * Download PM25 predictions: https://github.com/NSAPH/data_requests/tree/master/request_projects/oct2019_download_rm_pm/ <br>
 * County-level aggregation: https://github.com/NSAPH/data_requests/tree/master/request_projects/mar2020_rough_county_confounders/ <br>
 
+We acknowedge Randall Martin and members from The Atmospheric Composition Analysis Group at Dalhouse University to provide open-source datasets.
+
 <b>Contact Us: </b><br>
 * Email: fdominic@hsph.harvard.edu
 
