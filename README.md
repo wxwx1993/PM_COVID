@@ -2,19 +2,22 @@
 This is the data repository for public available code and data to reproduce analyses in "Exposure to air pollution and COVID-19 mortality in the United States".
 
 <b>Code: </b><br>
-Prepossing.R includes the code to extract all necessary data and prepocess data for statistical analyses.
+[`Prepossing.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Preprocessing.R) includes the code to extract all necessary data and prepocess data for statistical analyses.
 
-Analyses.R includes the code to implement zero-inflated negative binomial mixed models in primary, secondary and sensitivity analyses.
+[`Analyses.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Analyses.R) includes the code to implement zero-inflated negative binomial mixed models in primary, secondary and sensitivity analyses.
 
-Figure.R includes the code to generate figures in Main Text and Supplementary Materials.
+[`Figure.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Figure.R) includes the code to generate figures in Main Text and Supplementary Materials.
+
+[`additional_preprocessing_code`](https://github.com/wxwx1993/PM_COVID/tree/master/additional_preprocessing_code)
+
 
 <b>Additional Data Source: </b><br>
 The county-level PM2.5 exposure data can be created via PM2.5 predictions from The Atmospheric Composition Analysis Group at Dalhouse University (http://fizz.phys.dal.ca/~atmos/martin/). Please visit the detailed instructions below
 
-* Download PM25 predictions: https://github.com/NSAPH/data_requests/tree/master/request_projects/oct2019_download_rm_pm/ <br>
-* County-level aggregation: https://github.com/NSAPH/data_requests/tree/master/request_projects/mar2020_rough_county_confounders/ <br>
+- Download PM25 predictions: https://github.com/wxwx1993/PM_COVID/blob/master/additional_preprocessing_code/download_pm25_values.md. This code makes use of ZIP code shape files provided by ESRI.
+- County-level aggregation: https://github.com/wxwx1993/PM_COVID/blob/master/additional_preprocessing_code/rm_pm25_to_county.md
 
-We acknowedge Randall Martin and members from The Atmospheric Composition Analysis Group at Dalhouse University to provide open-source datasets.
+We thank Randall Martin and the members of the Atmospheric Composition Analysis Group at Dalhouse University for providing access to their open-source datasets. The specific data that we used can be found here: https://sites.wustl.edu/acag/datasets/surface-pm2-5/
 
 <b>Contact Us: </b><br>
 * Email: fdominic@hsph.harvard.edu
