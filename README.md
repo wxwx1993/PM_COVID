@@ -8,7 +8,7 @@ This is the data repository for public available code and data to reproduce anal
 
 [`Figure.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Figure.R) includes the code to generate figures in Main Text and Supplementary Materials.
 
-[`additional_preprocessing_code`](https://github.com/wxwx1993/PM_COVID/tree/master/additional_preprocessing_code)
+[`additional_preprocessing_code`](https://github.com/wxwx1993/PM_COVID/tree/master/additional_preprocessing_code) contains markdown files with code demonstrating the methodology we used to aggregate our zip code level data to the county level.
 
 
 <b>Additional Data Source: </b><br>
