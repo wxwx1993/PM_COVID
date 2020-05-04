@@ -20,7 +20,7 @@ county_temp = read.csv(text=getURL("https://raw.githubusercontent.com/wxwx1993/P
 county_census = read.csv(text=getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/census_county_interpolated.csv"))
 county_brfss = read.csv(text=getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/brfss_county_interpolated.csv"))
 
-state_test = read.csv(text=getURL("https://covidtracking.com/api/states/daily.csv"))
+state_test = read.csv(text=getURL("https://covidtracking.com/api/v1/states/daily.csv"))
 state_test = subset(state_test, date ==paste0(substring(str_remove_all(date_of_study, "-"),5,8),substring(str_remove_all(date_of_study, "-"),1,4)))[,-20]
 statecode = read.csv(text=getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/statecode.csv"))
 
