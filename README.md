@@ -4,7 +4,7 @@ This is the data repository for public available code and data to reproduce anal
 <b>Code: </b><br>
 [`Prepossing.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Preprocessing.R) includes the code to extract all necessary data and prepocess data for statistical analyses.
 
-[`Analyses.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Analyses.R) includes the code to implement zero-inflated negative binomial mixed models in primary, secondary and sensitivity analyses.
+[`Analyses.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Analyses.R) includes the code to implement negative binomial mixed models in primary, secondary and sensitivity analyses.
 
 [`Figure.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Figure.R) includes the code to generate figures in Main Text and Supplementary Materials.
 
