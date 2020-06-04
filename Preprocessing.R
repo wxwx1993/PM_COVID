@@ -10,7 +10,7 @@ covid_us_hist = subset(covid_hist, Country_Region == "US" & is.na(FIPS)==F)
 
 # Import outcome data from JHU CSSE
 covid = read.csv(text=getURL(paste0("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/",date_of_study,".csv")))
-covid_us = subset(covid,Country_Region == "US")
+covid_us = subset(covid,Country_Region == "US")[,1:12]
 covid_us = rbind(covid_us,subset(covid_us_hist, (!(FIPS %in% covid_us$FIPS))  & Confirmed == 0 & Deaths == 0 & is.na(FIPS)==F))
 covid_us$FIPS = str_pad(covid_us$FIPS, 5, pad = "0")
 
@@ -132,7 +132,7 @@ date_of_all = format(seq(as.Date("2020-03-22"), as.Date(strptime(date_of_study,"
 covid_us_daily_confirmed = lapply(date_of_all,
                                   function(date_of_all){
                                     covid_daily = read.csv(text=getURL(paste0("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/",date_of_all,".csv")))
-                                    covid_daily = covid_daily[!duplicated(covid_daily$FIPS),]
+                                    covid_daily = covid_daily[!duplicated(covid_daily$FIPS),1:12]
                                     return(subset(covid_daily,Country_Region == "US" & is.na(FIPS)!=T & Confirmed >0 ))
                                   }
 )
