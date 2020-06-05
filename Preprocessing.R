@@ -144,8 +144,10 @@ covid_us_new_confirmed[[1]]$date_since = length(covid_us_daily_confirmed)
 covid_us_new_confirmed[2:length(date_of_all)] =  lapply(2:(length(covid_us_daily_confirmed)),
                                                         function(i){
                                                           covid_us_new_confirmed =subset(covid_us_daily_confirmed[[i]],!(FIPS %in% unlist(sapply(1:(i-1),function(k)covid_us_daily_confirmed[[k]]$FIPS))))
-                                                          covid_us_new_confirmed$date_since = length(covid_us_daily_confirmed) - i + 1
-                                                          return(covid_us_new_confirmed)
+                                                          if (nrow(covid_us_new_confirmed)>0){
+                                                            covid_us_new_confirmed$date_since = length(covid_us_daily_confirmed) - i + 1
+                                                            return(covid_us_new_confirmed)
+                                                          } else{return(NA)}
                                                         })
 
 covid_us_new_confirmed.df <- do.call("rbind", covid_us_new_confirmed)[,c("FIPS","date_since")]
