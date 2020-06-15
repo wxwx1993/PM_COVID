@@ -122,7 +122,7 @@ aggregate_pm_census_cdc = merge(aggregate_pm_census,county_base_mortality[,c(1,4
 
 aggregate_pm_census_cdc = aggregate_pm_census_cdc[is.na(aggregate_pm_census_cdc$fips) ==F,]
 
-aggregate_pm_census_cdc_test = merge(aggregate_pm_census_cdc,state_test[,-22],by.x="Province_State",by.y = "State")
+aggregate_pm_census_cdc_test = merge(aggregate_pm_census_cdc,state_test[,-24],by.x="Province_State",by.y = "State")
 
 aggregate_pm_census_cdc_test_beds = merge(aggregate_pm_census_cdc_test,county_hospitals_aggregated,by.x = "fips",by.y = "COUNTYFIPS",all.x = T)
 aggregate_pm_census_cdc_test_beds$beds[is.na(aggregate_pm_census_cdc_test_beds$beds)] = 0
