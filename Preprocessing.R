@@ -202,7 +202,7 @@ aggregate_pm_census_cdc_test_beds$cli  =
            }else {return(NA)}})
 
 # Mobility data from Facebook Data for Good
-## https://www.facebook.com/geoinsights/
+## access at https://www.facebook.com/geoinsights-portal/
 date_of_mobility = seq(as.Date("2020-03-01"), as.Date(strptime(date_of_study,"%m-%d-%Y")), by = "days")
 
 covid_us_daily_mobility = lapply(date_of_mobility,
