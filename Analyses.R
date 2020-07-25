@@ -256,6 +256,24 @@ exp(summary(mode.nb.random.off.symptom)[10]$coefficients[2,1] - 1.96*summary(mod
 exp(summary(mode.nb.random.off.symptom)[10]$coefficients[2,1] + 1.96*summary(mode.nb.random.off.symptom)[10]$coefficients[2,2])
 summary(mode.nb.random.off.symptom)[10]$coefficients[2,4]
 
+# mobility
+mode.nb.random.off.mobi = glmer.nb(Deaths ~ mean_pm25 + factor(q_popdensity)
+                                 + scale(poverty)  + scale(log(medianhousevalue))
+                                 + scale(log(medhouseholdincome)) + scale(pct_owner_occ) 
+                                 + scale(education) + scale(pct_blk) + scale(hispanic)
+                                 + scale(older_pecent) + scale(prime_pecent) + scale(mid_pecent) 
+                                 + scale(date_since_social) + scale(date_since)
+                                 + scale(beds/population) 
+                                 + scale(obese) + scale(smoke)
+                                 + scale(mean_summer_temp) + scale(mean_winter_temp) + scale(mean_summer_rm) + scale(mean_winter_rm)
+                                 + scale(mean_visited_change) + scale(mean_ratio)
+                                 + (1|Province_State)
+                                 + offset(log(population)), data = (aggregate_pm_census_cdc_test_beds_mobility)) 
+summary(mode.nb.random.off.mobi)
+exp(summary(mode.nb.random.off.mobi)[10]$coefficients[2,1])
+exp(summary(mode.nb.random.off.mobi)[10]$coefficients[2,1] - 1.96*summary(mode.nb.random.off.mobi)[10]$coefficients[2,2])
+exp(summary(mode.nb.random.off.mobi)[10]$coefficients[2,1] + 1.96*summary(mode.nb.random.off.mobi)[10]$coefficients[2,2])
+summary(mode.nb.random.off.mobi)[10]$coefficients[2,4]
 
 # log(popdensity)
 mode.nb.random.off.main.logpopdensity = glmer.nb(Deaths ~ mean_pm25 + scale(log(popdensity))
