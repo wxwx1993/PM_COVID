@@ -59,3 +59,5 @@ Exposure to air pollution and COVID-19 mortality in the United States. Xiao Wu, 
 
 This GitHub repo and its contents herein, including data, link to data source, and analysis code that are intended solely for reproducing the results in the manuscript "Exposure to air pollution and COVID-19 mortality in the United States". The analyses rely upon publicly available data from multiple sources, that are often updated without advance notice. We hereby disclaim any and all representations and warranties with respect to the site, including accuracy, fitness for use, and merchantability. By using this site, its content, information, and software you agree to assume all risks associated with your use or transfer of information and/or software. You agree to hold the authors harmless from any claims relating to the use of this site.
 
+<b>Summary Results: </b><br>
+![](./Data/RR_time0804.pdf)
