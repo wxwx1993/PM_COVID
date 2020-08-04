@@ -61,3 +61,4 @@ This GitHub repo and its contents herein, including data, link to data source, a
 
 <b>Summary Results: </b><br>
 ![](./Data/RR_time0804.png)
+Figure: COVID-19 mortality rate ratios (MRR) per 1 μg/m3 increase in PM2.5 and 95% CI using daily cumulative COVID-19 death counts from April 18, 2020 to August 03, 2020
