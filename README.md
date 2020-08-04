@@ -1,6 +1,10 @@
 # Exposure to air pollution and COVID-19 mortality in the United States
 This is the data repository for public available code and data to reproduce analyses in "Exposure to air pollution and COVID-19 mortality in the United States".
 
+<b>Summary Results: </b><br>
+![](./Data/RR_time0804.png)
+Figure: COVID-19 mortality rate ratios (MRR) per 1 μg/m3 increase in PM2.5 and 95% CI using daily cumulative COVID-19 death counts from April 18, 2020 to August 03, 2020.
+
 <b>Code: </b><br>
 [`Prepossing.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Preprocessing.R) includes the code to extract all necessary data and prepocess data for statistical analyses.
 
@@ -58,7 +62,3 @@ Authors/funders retain copyright (where applicable) of code on this Github repo 
 Exposure to air pollution and COVID-19 mortality in the United States. Xiao Wu, Rachel C. Nethery, Benjamin M. Sabath, Danielle Braun, Francesca Dominici. medRxiv 2020.04.05.20054502; doi: https://doi.org/10.1101/2020.04.05.20054502
 
 This GitHub repo and its contents herein, including data, link to data source, and analysis code that are intended solely for reproducing the results in the manuscript "Exposure to air pollution and COVID-19 mortality in the United States". The analyses rely upon publicly available data from multiple sources, that are often updated without advance notice. We hereby disclaim any and all representations and warranties with respect to the site, including accuracy, fitness for use, and merchantability. By using this site, its content, information, and software you agree to assume all risks associated with your use or transfer of information and/or software. You agree to hold the authors harmless from any claims relating to the use of this site.
-
-<b>Summary Results: </b><br>
-![](./Data/RR_time0804.png)
-Figure: COVID-19 mortality rate ratios (MRR) per 1 μg/m3 increase in PM2.5 and 95% CI using daily cumulative COVID-19 death counts from April 18, 2020 to August 03, 2020
