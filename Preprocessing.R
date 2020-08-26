@@ -3,7 +3,7 @@ library(stringr)
 library(RCurl)
 library(httr)
 
-date_of_study = "05-05-2020"
+date_of_study = "08-24-2020"
 # Historical data
 covid_hist = read.csv(text=getURL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-30-2020.csv"))
 covid_us_hist = subset(covid_hist, Country_Region == "US" & is.na(FIPS)==F)
@@ -25,8 +25,8 @@ county_brfss<-county_brfss[,c('fipscode','v011_rawvalue','v009_rawvalue')]
 names(county_brfss)<-c('fips','obese','smoke')
 county_brfss$fips = str_pad(county_brfss$fips, 5, pad = "0")
 
-state_test = read.csv(text=getURL("https://covidtracking.com/api/v1/states/daily.csv"))
-state_test = subset(state_test, date ==paste0(substring(str_remove_all(date_of_study, "-"),5,8),substring(str_remove_all(date_of_study, "-"),1,4)))[,-20]
+state_test = read.csv(text=getURL("https://api.covidtracking.com/v1/states/daily.csv"))
+state_test = subset(state_test, date ==paste0(substring(str_remove_all(date_of_study, "-"),5,8),substring(str_remove_all(date_of_study, "-"),1,4)))[, - 38]
 statecode = read.csv(text=getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/statecode.csv"))
 
 hospitals = read.csv(text=getURL("https://opendata.arcgis.com/datasets/6ac5e325468c4cb9b905f1728d6fbf0f_0.csv?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D"))
