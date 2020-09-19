@@ -35,21 +35,21 @@ statecode <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/
 hospitals <- read.csv(text = getURL("https://opendata.arcgis.com/datasets/6ac5e325468c4cb9b905f1728d6fbf0f_0.csv?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D"))
 hospitals$BEDS[hospitals$BEDS < 0] <- NA
 
-county_base_mortality <- read.table(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_base_mortality.txt"), sep = "", header = T)
-county_old_mortality <- read.table(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_old_mortality.txt"), sep = "", header = T)
-county_014_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_014_mortality.txt", sep = "", header = T)
-county_1544_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_1544_mortality.txt", sep = "", header = T)
-county_4564_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_4564_mortality.txt", sep = "", header = T)
+county_base_mortality <- read.table(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_base_mortality.txt"), sep = "", header = TRUE)
+county_old_mortality <- read.table(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_old_mortality.txt"), sep = "", header = TRUE)
+county_014_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_014_mortality.txt", sep = "", header = TRUE)
+county_1544_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_1544_mortality.txt", sep = "", header = TRUE)
+county_4564_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_4564_mortality.txt", sep = "", header = TRUE)
 
 colnames(county_old_mortality)[4] <- c("older_Population")
 colnames(county_014_mortality)[4] <- c("014_Population")
 colnames(county_1544_mortality)[4] <- c("1544_Population")
 colnames(county_4564_mortality)[4] <- c("4564_Population")
 
-county_base_mortality <- merge(county_base_mortality,county_old_mortality[, c(2, 4)], by = "County.Code", all.x = T)
-county_base_mortality <- merge(county_base_mortality,county_014_mortality[, c(2, 4)], by = "County.Code", all.x = T)
-county_base_mortality <- merge(county_base_mortality,county_1544_mortality[, c(2, 4)], by = "County.Code", all.x = T)
-county_base_mortality <- merge(county_base_mortality,county_4564_mortality[, c(2, 4)], by = "County.Code", all.x = T)
+county_base_mortality <- merge(county_base_mortality,county_old_mortality[, c(2, 4)], by = "County.Code", all.x = TRUE)
+county_base_mortality <- merge(county_base_mortality,county_014_mortality[, c(2, 4)], by = "County.Code", all.x = TRUE)
+county_base_mortality <- merge(county_base_mortality,county_1544_mortality[, c(2, 4)], by = "County.Code", all.x = TRUE)
+county_base_mortality <- merge(county_base_mortality,county_4564_mortality[, c(2, 4)], by = "County.Code", all.x = TRUE)
 
 county_base_mortality$older_pecent <- county_base_mortality$older_Population / county_base_mortality$Population
 county_base_mortality$"young_pecent" <- county_base_mortality$"014_Population" / county_base_mortality$Population
@@ -76,7 +76,7 @@ colnames(state_policy)[6] <- "stay_at_home"
 state_test <- merge(state_test, statecode, by.x = "state" , by.y = "Code")
 state_test <- merge(state_test, state_policy[, c(1, 6)], by = "State")
 state_test$date_since_social <- as.numeric(as.Date(Sys.Date()) - as.Date((strptime(state_test$stay_at_home, "%m/%d/%Y"))))
-state_test[is.na(state_test$date_since_social) == T, ]$date_since_social <- 0
+state_test[is.na(state_test$date_since_social) == TRUE, ]$date_since_social <- 0
 
 # pm2.5 average over 17 years
 county_pm_aggregated <- county_pm %>% 
@@ -165,7 +165,7 @@ covid_us_daily_confirmed <- lapply(date_of_all,
                                                                                 date_of_all,
                                                                                 ".csv")))
                                      covid_daily <- covid_daily[!duplicated(covid_daily$FIPS), 1:12]
-                                     return(subset(covid_daily, Country_Region == "US" & is.na(FIPS) != T & Confirmed > 0))
+                                     return(subset(covid_daily, Country_Region == "US" & is.na(FIPS) != TRUE & Confirmed > 0))
                                   }
                                   )
 
@@ -279,11 +279,11 @@ for (i in 1:length(covid_us_daily_mobility)) {
   relative_mobility <- merge(relative_mobility, 
                              covid_us_daily_mobility[[i]][, c("all_day_bing_tiles_visited_relative_change", "fips")], 
                              by = "fips", 
-                             all.x = T)
+                             all.x = TRUE)
   }
 ## mean_visited_change: average all_day_bing_tiles_visited_relative_change over the study period.
 relative_mobility$mean_visited_change <-
-  rowMeans(relative_mobility[, 3:dim(relative_mobility)[2]], na.rm = T)
+  rowMeans(relative_mobility[, 3:dim(relative_mobility)[2]], na.rm = TRUE)
 
 ## all_day_ratio_single_tile_users: the percentage of Facebook users (mobile app + location history) that were present in only one such level 16 Bing tile in at least 3 different hours of the day.
 ## all_day_ratio_single_tile_users indicates the absolute amount of mobility for each county during the COVID-19 pandemic
@@ -292,7 +292,7 @@ for (i in 1:length(covid_us_daily_mobility)) {
   ratio_mobility <- merge(ratio_mobility, 
                           covid_us_daily_mobility[[i]][,c("all_day_ratio_single_tile_users", "fips")], 
                           by = "fips",
-                          all.x = T)
+                          all.x = TRUE)
   }
 ## mean_ratio: average all_day_ratio_single_tile_users over the whole study period.
 ratio_mobility$mean_ratio <- rowMeans(ratio_mobility[, 3:dim(ratio_mobility)[2]], na.rm = TRUE)

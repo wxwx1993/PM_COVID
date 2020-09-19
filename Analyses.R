@@ -6,7 +6,7 @@ library("gamm4")
 
 # Main
 mode.nb.random.off.main = glmer.nb(Deaths ~ mean_pm25 + factor(q_popdensity)
-                                    + scale(poverty)  + scale(log(medianhousevalue))
+                                    + scale(poverty) + scale(log(medianhousevalue))
                                     + scale(log(medhouseholdincome)) + scale(pct_owner_occ) 
                                     + scale(education) + scale(pct_blk) + scale(hispanic)
                                     + scale(older_pecent) + scale(prime_pecent) + scale(mid_pecent) 
