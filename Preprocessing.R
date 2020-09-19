@@ -6,12 +6,12 @@ library(httr)
 date_of_study = "08-24-2020"
 # Historical data
 covid_hist = read.csv(text=getURL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-30-2020.csv"))
-covid_us_hist = subset(covid_hist, Country_Region == "US" & is.na(FIPS)==F)
+covid_us_hist = subset(covid_hist, Country_Region == "US" & is.na(FIPS) == F)
 
 # Import outcome data from JHU CSSE
 covid = read.csv(text=getURL(paste0("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/",date_of_study,".csv")))
-covid_us = subset(covid,Country_Region == "US")[,1:12]
-covid_us = rbind(covid_us,subset(covid_us_hist, (!(FIPS %in% covid_us$FIPS))  & Confirmed == 0 & Deaths == 0 & is.na(FIPS)==F))
+covid_us = subset(covid, Country_Region == "US")[, 1:12]
+covid_us = rbind(covid_us, subset(covid_us_hist, (!(FIPS %in% covid_us$FIPS)) & Confirmed == 0 & Deaths == 0 & is.na(FIPS) == F))
 covid_us$FIPS = str_pad(covid_us$FIPS, 5, pad = "0")
 
 # Import exposure PM2.5 data
@@ -122,7 +122,7 @@ aggregate_pm_census_cdc = merge(aggregate_pm_census,county_base_mortality[,c(1,4
 
 aggregate_pm_census_cdc = aggregate_pm_census_cdc[is.na(aggregate_pm_census_cdc$fips) ==F,]
 
-aggregate_pm_census_cdc_test = merge(aggregate_pm_census_cdc,state_test[, -26],by.x="Province_State",by.y = "State")
+aggregate_pm_census_cdc_test = merge(aggregate_pm_census_cdc, state_test[, !(names(state_test) %in% c("fips"))], by.x="Province_State", by.y = "State")
 
 aggregate_pm_census_cdc_test_beds = merge(aggregate_pm_census_cdc_test,county_hospitals_aggregated,by.x = "fips",by.y = "COUNTYFIPS",all.x = T)
 aggregate_pm_census_cdc_test_beds$beds[is.na(aggregate_pm_census_cdc_test_beds$beds)] = 0
