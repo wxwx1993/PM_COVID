@@ -16,11 +16,11 @@ Figure: COVID-19 mortality rate ratios (MRR) per 1 μg/m3 increase in PM2.5 and 
 
 
 <b>Data: </b><br>
-county_pm25.csv: the county-level PM2.5 exposure data averaged across the period 2000-2016 and averaged across grid cells within a zip code and then averaging across zip codes within a county. For more source information see Additional Data Source section.
+county_pm25.csv: the county-level PM2.5 exposure data averaged across the period 2000-2016, averaged across grid cells within a zip code and then averaging across zip codes within a county. For more source information see Additional Data Source section.
 
 temp_seasonal_county.csv: the county-level seasonal temperature and relative humidity data, summer and winter averaged across the period 2000-2016 and averaged across grid cells in each county. For more source information see Additional Data Source section.
 
-census_county_interpolated.csv: the county-level socioeconomic and demographic variables from 2012-2016 American Community Survey, extract in each zip code and then averaging across zip codes within a county. (https://www.census.gov/programs-surveys/acs/data.html).
+census_county_interpolated.csv: the county-level socioeconomic and demographic variables from 2012-2016 American Community Survey, extracted for each zip code and then averaging across zip codes within a county. (https://www.census.gov/programs-surveys/acs/data.html).
 
 county_base_mortality.txt, county_old_mortality.txt: additional county-level socioeconomic and demographic variables from 2009-2016 
 US CDC Compressed Mortality Data (https://wonder.cdc.gov/cmf-ICD10.html).
