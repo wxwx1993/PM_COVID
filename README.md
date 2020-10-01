@@ -39,12 +39,12 @@ We thank Randall Martin and the members of the Atmospheric Composition Analysis 
 
 The seasonal temperature and relative humidity data can be created via 4km × 4km temperature and relative humidity predictions from Gridmet via google earth engine (https://developers.google.com/earth-engine/datasets/catalog/IDAHO_EPSCOR_GRIDMET).
 
+We thank John Abatzoglou and members of the Climatology Lab at University of Idaho for providing the GRIDMET open-source datasets. 
+
 The county-level socioeconomic and demographic variables from 2012-2016 American Community Survey can be created from US Census website
 
 - Download zip code-level SES variables from ACS for each zip code: https://www.census.gov/programs-surveys/acs/data.html
 - County-level aggregation: https://github.com/wxwx1993/PM_COVID/blob/master/additional_preprocessing_code/census_to_county.md
-
-We thank John Abatzoglou and members of the Climatology Lab at University of Idaho for providing the GRIDMET open-source datasets. 
 
 Additional data required by the analyses can be directly extracted from data sources:
 
