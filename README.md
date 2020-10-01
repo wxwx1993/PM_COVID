@@ -49,7 +49,8 @@ The county-level socioeconomic and demographic variables from 2012-2016 American
 Additional data required by the analyses can be directly extracted from data sources:
 
 * Johns Hopkins University the Center for Systems Science and Engineering (CSSE) Coronavirus Resource Center: https://coronavirus.jhu.edu/ <br>
-* Homeland Infrastructure Foundation- Level Data (HIFLD): https://hifld-geoplatform.opendata.arcgis.com/datasets/hospitals <br>
+* Homeland Infrastructure Foundation-Level Data (HIFLD): https://hifld-geoplatform.opendata.arcgis.com/datasets/hospitals <br>
+* Robert Wood Johnson Foundation County Health Rankings: https://www.countyhealthrankings.org/ <br>
 * The COVID tracking project: https://covidtracking.com/ <br>
 * Carnegie Mellon University COVIDcast Delphi Research Group: https://covidcast.cmu.edu/ <br>
 * Facebook Data for Good project: https://www.facebook.com/geoinsights-portal/ <br>
