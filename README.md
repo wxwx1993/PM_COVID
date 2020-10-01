@@ -20,7 +20,7 @@ county_pm25.csv: the county-level PM2.5 exposure data averaged across the period
 
 temp_seasonal_county.csv: the county-level seasonal temperature and relative humidity data, summer and winter averaged across the period 2000-2016 and averaged across grid cells in each county. For more source information see Additional Data Source section.
 
-census_county_interpolated.csv: the county-level socioeconomic and demographic variables from 2012-2016 American Community Survey, extracted for each zip code and then averaging across zip codes within a county. (https://www.census.gov/programs-surveys/acs/data.html).
+census_county_interpolated.csv: the county-level socioeconomic and demographic variables from 2012-2016 American Community Survey, extracted for each zip code and then averaging across zip codes within a county. For more source information see Additional Data Source section.
 
 county_base_mortality.txt, county_old_mortality.txt: additional county-level socioeconomic and demographic variables from 2009-2016 
 US CDC Compressed Mortality Data (https://wonder.cdc.gov/cmf-ICD10.html).
@@ -38,6 +38,11 @@ The county-level PM2.5 exposure data can be created via PM2.5 predictions from T
 We thank Randall Martin and the members of the Atmospheric Composition Analysis Group at Dalhouse University for providing access to their open-source datasets. Their data (V4.NA.02.MAPLE) that we used can be found here: https://sites.wustl.edu/acag/datasets/surface-pm2-5/. Citation: van Donkelaar, A., R. V. Martin, C. Li, R. T. Burnett, Regional Estimates of Chemical Composition of Fine Particulate Matter using a Combined Geoscience-Statistical Method with Information from Satellites, Models, and Monitors, Environ. Sci. Technol., doi: 10.1021/acs.est.8b06392, 2019. 
 
 The seasonal temperature and relative humidity data can be created via 4km × 4km temperature and relative humidity predictions from Gridmet via google earth engine (https://developers.google.com/earth-engine/datasets/catalog/IDAHO_EPSCOR_GRIDMET).
+
+The county-level socioeconomic and demographic variables from 2012-2016 American Community Survey can be created from US Census website
+
+- Download zip code-level SES variables from ACS for each zip code: https://www.census.gov/programs-surveys/acs/data.html
+- County-level aggregation: https://github.com/wxwx1993/PM_COVID/blob/master/additional_preprocessing_code/census_to_county.md
 
 We thank John Abatzoglou and members of the Climatology Lab at University of Idaho for providing the GRIDMET open-source datasets. 
 
