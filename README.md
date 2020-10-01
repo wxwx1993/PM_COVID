@@ -25,7 +25,7 @@ census_county_interpolated.csv: the county-level socioeconomic and demographic v
 county_base_mortality.txt, county_old_mortality.txt: additional county-level socioeconomic and demographic variables from 2009-2016 
 US CDC Compressed Mortality Data (https://wonder.cdc.gov/cmf-ICD10.html).
 
-brfss_county_interpolated.csv: the county-level behavioral risk factor variables for 2011 US CDC Behavioral Risk Factor Surveillance System (https://www.cdc.gov/brfss/).
+brfss_county_interpolated.csv: the county-level behavioral risk factor variables for 2011 US CDC Behavioral Risk Factor Surveillance System (https://www.cdc.gov/brfss/). (deprecated from the updated analyese due to servere missningness). In the final analysis, we use county-level health risk factors: proportion of residents obese and proportion of residents that are current smokers from the Robert Wood Johnson Foundation’s 2020 County Health Rankings.
 
 statecode.csv: A map between state name and state abbreviations.
 
