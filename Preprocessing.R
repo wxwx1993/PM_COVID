@@ -15,11 +15,11 @@ covid_us <- rbind(covid_us, subset(covid_us_hist, (!(FIPS %in% covid_us$FIPS)) &
 covid_us$FIPS <- str_pad(covid_us$FIPS, 5, pad = "0")
 
 # Import exposure PM2.5 data
-county_pm <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_pm25.csv"))
+county_pm <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/county_pm25.csv"))
 
-county_temp <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/temp_seasonal_county.csv"))
+county_temp <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/temp_seasonal_county.csv"))
 # Import census, brfss, testing, mortality, hosptial beds data as potential confounders
-county_census <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/census_county_interpolated.csv"))
+county_census <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/census_county_interpolated.csv"))
 #county_brfss <- read.csv(text = getURL("https://www.countyhealthrankings.org/sites/default/files/media/document/analytic_data2020.csv"), skip = 1)
 GET("https://www.countyhealthrankings.org/sites/default/files/media/document/analytic_data2020.csv", 
     write_disk("county_brfss.csv", overwrite = TRUE))
@@ -104,15 +104,15 @@ county_hospitals_aggregated$COUNTYFIPS <- str_pad(county_hospitals_aggregated$CO
 county_census_aggregated2 <- subset(county_census, year == 2016)
 
 county_census_aggregated2$q_popdensity <- 1
-quantile_popdensity <- quantile(county_census_aggregated2$popdensity, c(0.2, 0.4, 0.6, 0.8))
-county_census_aggregated2$q_popdensity[county_census_aggregated2$popdensity <= quantile_popdensity[1]] <- 1
-county_census_aggregated2$q_popdensity[county_census_aggregated2$popdensity > quantile_popdensity[1] &
-                                         county_census_aggregated2$popdensity <= quantile_popdensity[2]] <- 2
-county_census_aggregated2$q_popdensity[county_census_aggregated2$popdensity > quantile_popdensity[2] &
-                                         county_census_aggregated2$popdensity <= quantile_popdensity[3]] <- 3
-county_census_aggregated2$q_popdensity[county_census_aggregated2$popdensity > quantile_popdensity[3] &
-                                         county_census_aggregated2$popdensity <= quantile_popdensity[4]] <- 4
-county_census_aggregated2$q_popdensity[county_census_aggregated2$popdensity > quantile_popdensity[4]] <- 5
+quantile_popdensity <- quantile(county_census_aggregated2$population_density, c(0.2, 0.4, 0.6, 0.8), na.rm = TRUE)
+county_census_aggregated2$q_popdensity[county_census_aggregated2$population_density <= quantile_popdensity[1]] <- 1
+county_census_aggregated2$q_popdensity[county_census_aggregated2$population_density > quantile_popdensity[1] &
+                                         county_census_aggregated2$population_density <= quantile_popdensity[2]] <- 2
+county_census_aggregated2$q_popdensity[county_census_aggregated2$population_density > quantile_popdensity[2] &
+                                         county_census_aggregated2$population_density <= quantile_popdensity[3]] <- 3
+county_census_aggregated2$q_popdensity[county_census_aggregated2$population_density > quantile_popdensity[3] &
+                                         county_census_aggregated2$population_density <= quantile_popdensity[4]] <- 4
+county_census_aggregated2$q_popdensity[county_census_aggregated2$population_density > quantile_popdensity[4]] <- 5
 
 county_census_aggregated2$fips <- str_pad(county_census_aggregated2$fips, 5, pad = "0")
 county_census_aggregated2 <- merge(county_census_aggregated2,county_brfss,
@@ -214,8 +214,8 @@ aggregate_pm_census_cdc_test_beds[aggregate_pm_census_cdc_test_beds$Admin2 == "N
   subset(aggregate_pm_census_cdc_test_beds, Admin2 == "Queens" & Province_State == "New York")$beds +
   subset(aggregate_pm_census_cdc_test_beds, Admin2 == "Richmond" & Province_State == "New York")$beds
 
-vars <- c("mean_pm25", "poverty", "medianhousevalue", "medhouseholdincome", "pct_owner_occ",
-          "education", "pct_blk", "hispanic", "older_pecent", "prime_pecent", "mid_pecent", "obese", "smoke",
+vars <- c("mean_pm25", "poverty", "median_house_value", "median_household_income", "owner_occupied",
+          "no_grad", "blk_pct", "hispanic_pct", "older_pecent", "prime_pecent", "mid_pecent", "obese", "smoke",
           "mean_summer_temp", "mean_summer_rm", "mean_winter_temp", "mean_winter_rm")
 aggregate_pm_census_cdc_test_beds[aggregate_pm_census_cdc_test_beds$Admin2 == "New York City",][, vars] <-
   sapply(vars, function(var) {
@@ -305,6 +305,3 @@ aggregate_pm_census_cdc_test_beds_mobility <- merge(aggregate_pm_census_cdc_test
                                                     ratio_mobility[, c("fips", "mean_ratio")],
                                                     by = "fips",
                                                     all.x = TRUE)
-
-
-
