@@ -1,5 +1,5 @@
 # Air pollution and COVID-19 mortality in the United States
-This is the data repository for public available code and data to reproduce analyses in Wu, X., Braun, D., Schwartz, J., Kioumourtzoglou, M.A. and Dominici, F., 2020. Air pollution and COVID-19 mortality in the United States: Strengths and limitations of an ecological regression analysis. Science advances, 6, p.eabd4049. 
+This is the data repository for public available code and data to reproduce analyses in Wu, X., Nethery, R. C., Sabath, M. B., Braun, D. and Dominici, F., 2020. Air pollution and COVID-19 mortality in the United States: Strengths and limitations of an ecological regression analysis. Science advances, 6, p.eabd4049. 
 
 <b>Summary Results: </b><br>
 ![](./Data/RR_time0907.png)
@@ -65,7 +65,7 @@ We thank all of them for making their data public and for enabling this research
 <b>Terms of Use:</b><br>
 Authors/funders retain copyright (where applicable) of code on this Github repo and the article in press on Science Advances (A pre-print version posted on medRxiv). Anyone who wishes to share, reuse, remix, or adapt this material must obtain permission from the corresponding author. By using the contents on this Github repo and the article, you agree to cite:
 
-1. Wu, X., Braun, D., Schwartz, J., Kioumourtzoglou, M.A. and Dominici, F., 2020. Air pollution and COVID-19 mortality in the United States: Strengths and limitations of an ecological regression analysis. Science advances, 6, p.eabd4049.
+1. Wu, X., Nethery, R. C., Sabath, M. B., Braun, D. and Dominici, F., 2020. Air pollution and COVID-19 mortality in the United States: Strengths and limitations of an ecological regression analysis. Science advances, 6, p.eabd4049.
 
 2. A pre-print version can be found at: Exposure to air pollution and COVID-19 mortality in the United States. Xiao Wu, Rachel C. Nethery, Benjamin M. Sabath, Danielle Braun, Francesca Dominici. medRxiv 2020.04.05.20054502; doi: https://doi.org/10.1101/2020.04.05.20054502
 
