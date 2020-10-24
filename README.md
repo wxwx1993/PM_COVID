@@ -6,7 +6,7 @@ This is the data repository for public available code and data to reproduce anal
 ![](./Data/RR_updated_time08011023.png)
 Figure: COVID-19 mortality rate ratios (MRR) per 1 μg/m3 increase in PM2.5 and 95% CI using daily cumulative COVID-19 death counts from April 18, 2020 to October 23, 2020.
 
-Since August 1, 2020, we have started to extract county-level PM2.5 exposure via PM2.5 predictions from The Atmospheric Composition Analysis Group at Dalhouse University; and county-level census variables from the decennial census and the ACS.
+Since August 1, 2020, we have started to create county-level PM2.5 exposure via PM2.5 predictions from The Atmospheric Composition Analysis Group at Dalhouse University; and extract county-level census variables from the decennial census and the ACS directly. Note the current statistical model may not be able to capture newcome confounding factors, e.g., the lifting or changes of the policy interventions and the avaliability of newly-identifed experimental and approval drugs (e.g., Remdesivir and dexamethasone).
 
 <b>Code: </b><br>
 [`Prepossing.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Preprocessing.R) includes the code to extract all necessary data and prepocess data for statistical analyses.
