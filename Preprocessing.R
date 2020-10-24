@@ -3,7 +3,7 @@ library(stringr)
 library(RCurl)
 library(httr)
 
-date_of_study <- "09-07-2020"
+date_of_study <- "06-18-2020"
 # Historical data
 covid_hist <- read.csv(text = getURL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-30-2020.csv"))
 covid_us_hist <- subset(covid_hist, Country_Region == "US" & is.na(FIPS) == F)
