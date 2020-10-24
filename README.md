@@ -3,7 +3,7 @@ This is the data repository for public available code and data to reproduce anal
 
 <b>Summary Results: </b><br>
 ![](./Data/RR_time.png)
-Figure: COVID-19 mortality rate ratios (MRR) per 1 μg/m3 increase in PM2.5 and 95% CI using daily cumulative COVID-19 death counts from April 18, 2020 to June 16, 2020.
+Figure: COVID-19 mortality rate ratios (MRR) per 1 μg/m3 increase in PM2.5 and 95% CI using daily cumulative COVID-19 death counts from April 18, 2020 to June 18, 2020.
 
 <b>Code: </b><br>
 [`Prepossing.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Preprocessing.R) includes the code to extract all necessary data and prepocess data for statistical analyses.
