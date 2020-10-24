@@ -2,8 +2,11 @@
 This is the data repository for public available code and data to reproduce analyses in Wu, X., Nethery, R. C., Sabath, M. B., Braun, D. and Dominici, F., 2020. Air pollution and COVID-19 mortality in the United States: Strengths and limitations of an ecological regression analysis. Science advances, 6, p.eabd4049. 
 
 <b>Summary Results: </b><br>
-![](./Data/RR_time0907.png)
-Figure: COVID-19 mortality rate ratios (MRR) per 1 μg/m3 increase in PM2.5 and 95% CI using daily cumulative COVID-19 death counts from April 18, 2020 to September 7, 2020.
+![](./Data/RR_time04180731.png)
+![](./Data/RR_updated_time08011023.png)
+Figure: COVID-19 mortality rate ratios (MRR) per 1 μg/m3 increase in PM2.5 and 95% CI using daily cumulative COVID-19 death counts from April 18, 2020 to October 23, 2020.
+
+Since August 1, 2020, we have started to extract county-level PM2.5 exposure via PM2.5 predictions from The Atmospheric Composition Analysis Group at Dalhouse University; and county-level census variables from the decennial census and the ACS.
 
 <b>Code: </b><br>
 [`Prepossing.R`](https://github.com/wxwx1993/PM_COVID/blob/master/Preprocessing.R) includes the code to extract all necessary data and prepocess data for statistical analyses.
