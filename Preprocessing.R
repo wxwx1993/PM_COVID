@@ -104,7 +104,7 @@ county_hospitals_aggregated$COUNTYFIPS <- str_pad(county_hospitals_aggregated$CO
 county_census_aggregated2 <- subset(county_census, year == 2016)
 
 county_census_aggregated2$q_popdensity <- 1
-quantile_popdensity <- quantile(county_census_aggregated2$population_density, c(0.2, 0.4, 0.6, 0.8), na.rm = TRUE)
+quantile_popdensity <- quantile(county_census_aggregated2$population_density, c(0.2, 0.4, 0.6, 0.8))
 county_census_aggregated2$q_popdensity[county_census_aggregated2$population_density <= quantile_popdensity[1]] <- 1
 county_census_aggregated2$q_popdensity[county_census_aggregated2$population_density > quantile_popdensity[1] &
                                          county_census_aggregated2$population_density <= quantile_popdensity[2]] <- 2
