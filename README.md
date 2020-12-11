@@ -30,12 +30,12 @@ brfss_county_interpolated.csv: the county-level behavioral risk factor variables
 statecode.csv: A map between state name and state abbreviations.
 
 <b>Additional Data Source: </b><br>
-The county-level PM2.5 exposure data can be created via PM2.5 predictions from The Atmospheric Composition Analysis Group at Dalhouse University (http://fizz.phys.dal.ca/~atmos/martin/). Please visit the detailed instructions below
+The county-level PM2.5 exposure data can be created via PM2.5 predictions from The Atmospheric Composition Analysis Group at Dalhousie University (http://fizz.phys.dal.ca/~atmos/martin/). Please visit the detailed instructions below
 
 - Download PM25 predictions: https://github.com/wxwx1993/PM_COVID/blob/master/additional_preprocessing_code/download_pm25_values.md. This code makes use of ZIP code shape files provided by ESRI.
 - County-level aggregation: https://github.com/wxwx1993/PM_COVID/blob/master/additional_preprocessing_code/rm_pm25_to_county.md
 
-We thank Randall Martin and the members of the Atmospheric Composition Analysis Group at Dalhouse University for providing access to their open-source datasets. Their data (V4.NA.02.MAPLE) that we used can be found here: https://sites.wustl.edu/acag/datasets/surface-pm2-5/. Citation: van Donkelaar, A., R. V. Martin, C. Li, R. T. Burnett, Regional Estimates of Chemical Composition of Fine Particulate Matter using a Combined Geoscience-Statistical Method with Information from Satellites, Models, and Monitors, Environ. Sci. Technol., doi: 10.1021/acs.est.8b06392, 2019. 
+We thank Randall Martin and the members of the Atmospheric Composition Analysis Group at Dalhousie University for providing access to their open-source datasets. Their data (V4.NA.02.MAPLE) that we used can be found here: https://sites.wustl.edu/acag/datasets/surface-pm2-5/. Citation: van Donkelaar, A., R. V. Martin, C. Li, R. T. Burnett, Regional Estimates of Chemical Composition of Fine Particulate Matter using a Combined Geoscience-Statistical Method with Information from Satellites, Models, and Monitors, Environ. Sci. Technol., doi: 10.1021/acs.est.8b06392, 2019. 
 
 The seasonal temperature and relative humidity data can be created via 4km × 4km temperature and relative humidity predictions from Gridmet via google earth engine (https://developers.google.com/earth-engine/datasets/catalog/IDAHO_EPSCOR_GRIDMET).
 
