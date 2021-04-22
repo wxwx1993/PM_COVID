@@ -243,68 +243,65 @@ aggregate_pm_census_cdc_test_beds <- subset(aggregate_pm_census_cdc_test_beds,
                                               !(Admin2 == "Richmond" & Province_State == "New York"))
 
 # (Deplicated) Request FB survey data from CMU COVIDcast Delphi Research Group
-aggregate_pm_census_cdc_test_beds$cli <- 
-  sapply(aggregate_pm_census_cdc_test_beds$fips, 
-         function(fips){
-           if (Epidata$covidcast('fb-survey', 'smoothed_cli', 'day', 'county', 
-                                 list(Epidata$range(20200401,
-                                                    paste0(substring(str_remove_all(date_of_study, "-"), 5, 8),
-                                                           substring(str_remove_all(date_of_study, "-"), 1, 4)))), 
-                                 fips)[[2]] != "no results"){
-             return(mean(sapply(Epidata$covidcast('fb-survey', 'smoothed_cli', 'day', 'county', 
-                                                  list(Epidata$range(20200401, 
-                                                                     paste0(substring(str_remove_all(date_of_study, "-"), 5, 8),
-                                                                            substring(str_remove_all(date_of_study, "-"), 1, 4)))),
-                                                  fips)[[2]], function(i){i$value}), na.rm = TRUE))
-             } else {return(NA)}})
+#aggregate_pm_census_cdc_test_beds$cli <- 
+#  sapply(aggregate_pm_census_cdc_test_beds$fips, 
+#         function(fips){
+#           if (Epidata$covidcast('fb-survey', 'smoothed_cli', 'day', 'county', 
+#                                 list(Epidata$range(20200401,
+#                                                    paste0(substring(str_remove_all(date_of_study, "-"), 5, 8),
+#                                                           substring(str_remove_all(date_of_study, "-"), 1, 4)))), 
+#                                 fips)[[2]] != "no results"){
+#             return(mean(sapply(Epidata$covidcast('fb-survey', 'smoothed_cli', 'day', 'county', 
+#                                                  list(Epidata$range(20200401, 
+#                                                                     paste0(substring(str_remove_all(date_of_study, "-"), 5, 8),
+#                                                                            substring(str_remove_all(date_of_study, "-"), 1, 4)))),
+#                                                  fips)[[2]], function(i){i$value}), na.rm = TRUE))
+#             } else {return(NA)}})
 
 # Mobility data from Facebook Data for Good
 ## access at https://www.facebook.com/geoinsights-portal/
-date_of_mobility <- seq(as.Date("2020-03-01"), as.Date(strptime(date_of_study, "%m-%d-%Y")), by = "days")
-
-covid_us_daily_mobility <- lapply(date_of_mobility,
-                                  function(date_of_mobility) {
-                                    covid_mobility <- read.csv(paste0("/mobility/Covid19 Mobility Metrics US_county_US_county_", date_of_mobility, ".csv"))
-                                    colnames(covid_mobility)[12] <- "fips"
-                                    covid_mobility$fips <- str_pad(covid_mobility$fips, 5, pad = "0")
-                                    return(covid_mobility)
-                                  }
-                                  )
+#date_of_mobility <- seq(as.Date("2020-03-01"), as.Date(strptime(date_of_study, "%m-%d-%Y")), by = "days")
+#
+#covid_us_daily_mobility <- lapply(date_of_mobility,
+#                                  function(date_of_mobility) {
+#                                    covid_mobility <- read.csv(paste0("/mobility/Covid19 Mobility Metrics US_county_US_county_", date_of_mobility, ".csv"))
+#                                    colnames(covid_mobility)[12] <- "fips"
+#                                    covid_mobility$fips <- str_pad(covid_mobility$fips, 5, pad = "0")
+#                                    return(covid_mobility)
+#                                  }
+#                                  )
 
 ## all_day_bing_tiles_visited_relative_change: the average number of level 16 Bing tiles (0.6km by 0.6km) that a Facebook user (mobile app + location history) was present 
 ## in during a 24 hour period compared to pre-crisis levels.
 ## all_day_bing_tiles_visited_relative_change indicates the relative change of mobility for each county during the COVID-19 pandemic
-relative_mobility <- data.frame(aggregate_pm_census_cdc_test_beds[, c("fips", "mean_pm25")])
-for (i in 1:length(covid_us_daily_mobility)) {
-  relative_mobility <- merge(relative_mobility, 
-                             covid_us_daily_mobility[[i]][, c("all_day_bing_tiles_visited_relative_change", "fips")], 
-                             by = "fips", 
-                             all.x = TRUE)
-  }
-## mean_visited_change: average all_day_bing_tiles_visited_relative_change over the study period.
-relative_mobility$mean_visited_change <-
-  rowMeans(relative_mobility[, 3:dim(relative_mobility)[2]], na.rm = TRUE)
+#relative_mobility <- data.frame(aggregate_pm_census_cdc_test_beds[, c("fips", "mean_pm25")])
+#for (i in 1:length(covid_us_daily_mobility)) {
+#  relative_mobility <- merge(relative_mobility, 
+#                             covid_us_daily_mobility[[i]][, c("all_day_bing_tiles_visited_relative_change", "fips")], 
+#                             by = "fips", 
+#                             all.x = TRUE)
+#  }
+### mean_visited_change: average all_day_bing_tiles_visited_relative_change over the study period.
+#relative_mobility$mean_visited_change <-
+#  rowMeans(relative_mobility[, 3:dim(relative_mobility)[2]], na.rm = TRUE)
 
 ## all_day_ratio_single_tile_users: the percentage of Facebook users (mobile app + location history) that were present in only one such level 16 Bing tile in at least 3 different hours of the day.
 ## all_day_ratio_single_tile_users indicates the absolute amount of mobility for each county during the COVID-19 pandemic
-ratio_mobility <- data.frame(aggregate_pm_census_cdc_test_beds[, c("fips", "mean_pm25")])
-for (i in 1:length(covid_us_daily_mobility)) {
-  ratio_mobility <- merge(ratio_mobility, 
-                          covid_us_daily_mobility[[i]][,c("all_day_ratio_single_tile_users", "fips")], 
-                          by = "fips",
-                          all.x = TRUE)
-  }
+#ratio_mobility <- data.frame(aggregate_pm_census_cdc_test_beds[, c("fips", "mean_pm25")])
+#for (i in 1:length(covid_us_daily_mobility)) {
+#  ratio_mobility <- merge(ratio_mobility, 
+#                          covid_us_daily_mobility[[i]][,c("all_day_ratio_single_tile_users", "fips")], 
+#                          by = "fips",
+#                          all.x = TRUE)
+#  }
 ## mean_ratio: average all_day_ratio_single_tile_users over the whole study period.
-ratio_mobility$mean_ratio <- rowMeans(ratio_mobility[, 3:dim(ratio_mobility)[2]], na.rm = TRUE)
+#ratio_mobility$mean_ratio <- rowMeans(ratio_mobility[, 3:dim(ratio_mobility)[2]], na.rm = TRUE)
 
-aggregate_pm_census_cdc_test_beds_mobility <- merge(aggregate_pm_census_cdc_test_beds,
-                                                    relative_mobility[,c("fips", "mean_visited_change")],
-                                                    by = "fips", 
-                                                    all.x = TRUE)
-aggregate_pm_census_cdc_test_beds_mobility <- merge(aggregate_pm_census_cdc_test_beds_mobility,
-                                                    ratio_mobility[, c("fips", "mean_ratio")],
-                                                    by = "fips",
-                                                    all.x = TRUE)
-
-
-
+#aggregate_pm_census_cdc_test_beds_mobility <- merge(aggregate_pm_census_cdc_test_beds,
+#                                                    relative_mobility[,c("fips", "mean_visited_change")],
+#                                                    by = "fips", 
+#                                                    all.x = TRUE)
+#aggregate_pm_census_cdc_test_beds_mobility <- merge(aggregate_pm_census_cdc_test_beds_mobility,
+#                                                    ratio_mobility[, c("fips", "mean_ratio")],
+#                                                    by = "fips",
+#                                                    all.x = TRUE)
