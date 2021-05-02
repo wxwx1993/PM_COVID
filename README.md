@@ -1,7 +1,7 @@
 # Air pollution and COVID-19 mortality in the United States
 This is the data repository for public available code and data to reproduce analyses in Wu, X., Nethery, R. C., Sabath, M. B., Braun, D. and Dominici, F., 2020. Air pollution and COVID-19 mortality in the United States: Strengths and limitations of an ecological regression analysis. Science advances, 6(45), p.eabd4049. 
 
-<span style="color: red"><b>For more updated county-level PM2.5 and US Census Data, please download from https://github.com/wxwx1993/PM_COVID/tree/updated_data.</b><br></span>
+<b><span style="color: red">For more updated county-level PM2.5 and US Census Data, please download from https://github.com/wxwx1993/PM_COVID/tree/updated_data.</span></b><br>
 
 <b>Summary Results: </b><br>
 ![](./Data/RR_time.png)
