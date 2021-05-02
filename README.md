@@ -1,6 +1,8 @@
 # Air pollution and COVID-19 mortality in the United States
 This is the data repository for public available code and data to reproduce analyses in Wu, X., Nethery, R. C., Sabath, M. B., Braun, D. and Dominici, F., 2020. Air pollution and COVID-19 mortality in the United States: Strengths and limitations of an ecological regression analysis. Science advances, 6(45), p.eabd4049. 
 
+<b>For updated County-level PM2.5, US Census Data, please download from https://github.com/wxwx1993/PM_COVID/tree/updated_data.
+
 <b>Summary Results: </b><br>
 ![](./Data/RR_time.png)
 Figure: COVID-19 mortality rate ratios (MRR) per 1 μg/m3 increase in PM2.5 and 95% CI using daily cumulative COVID-19 death counts from April 18, 2020 to June 18, 2020.
