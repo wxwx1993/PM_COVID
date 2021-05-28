@@ -60,7 +60,7 @@ agg_rm_pm25 <- function(pm25.nc, polygons) {
 }
 ```
 
-Finally we iterate over years and aggregate to zip codes. Note that we
+Finally we iterate over years and aggregate to counties. Note that we
 check for existing files, and don’t write over them if they exist.
 
 ``` r
