@@ -15,11 +15,11 @@ covid_us <- rbind(covid_us, subset(covid_us_hist, (!(FIPS %in% covid_us$FIPS)) &
 covid_us$FIPS <- str_pad(covid_us$FIPS, 5, pad = "0")
 
 # Import exposure PM2.5 data
-county_pm <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_pm25.csv"))
+county_pm <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/county_pm25.csv"))
 
-county_temp <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/temp_seasonal_county.csv"))
+county_temp <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/temp_seasonal_county.csv"))
 # Import census, brfss, testing, mortality, hosptial beds data as potential confounders
-county_census <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/census_county_interpolated.csv"))
+county_census <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/census_county_interpolated.csv"))
 #county_brfss <- read.csv(text = getURL("https://www.countyhealthrankings.org/sites/default/files/media/document/analytic_data2020.csv"), skip = 1)
 GET("https://www.countyhealthrankings.org/sites/default/files/media/document/analytic_data2020.csv", 
     write_disk("county_brfss.csv", overwrite = TRUE))
@@ -30,16 +30,16 @@ county_brfss$fips <- str_pad(county_brfss$fips, 5, pad = "0")
 
 state_test <- read.csv(text = getURL("https://api.covidtracking.com/v1/states/daily.csv"))
 state_test <- subset(state_test, date == paste0(substring(str_remove_all(date_of_study, "-"), 5, 8),substring(str_remove_all(date_of_study, "-"), 1, 4)))[, - 38]
-statecode <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/statecode.csv"))
+statecode <- read.csv(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/statecode.csv"))
 
 hospitals <- read.csv(text = getURL("https://opendata.arcgis.com/datasets/6ac5e325468c4cb9b905f1728d6fbf0f_0.csv?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D"))
 hospitals$BEDS[hospitals$BEDS < 0] <- NA
 
-county_base_mortality <- read.table(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_base_mortality.txt"), sep = "", header = TRUE)
-county_old_mortality <- read.table(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_old_mortality.txt"), sep = "", header = TRUE)
-county_014_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_014_mortality.txt", sep = "", header = TRUE)
-county_1544_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_1544_mortality.txt", sep = "", header = TRUE)
-county_4564_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/county_4564_mortality.txt", sep = "", header = TRUE)
+county_base_mortality <- read.table(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/county_base_mortality.txt"), sep = "", header = TRUE)
+county_old_mortality <- read.table(text = getURL("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/county_old_mortality.txt"), sep = "", header = TRUE)
+county_014_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/county_014_mortality.txt", sep = "", header = TRUE)
+county_1544_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/county_1544_mortality.txt", sep = "", header = TRUE)
+county_4564_mortality <- read.table("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/county_4564_mortality.txt", sep = "", header = TRUE)
 
 colnames(county_old_mortality)[4] <- c("older_Population")
 colnames(county_014_mortality)[4] <- c("014_Population")
@@ -61,7 +61,7 @@ county_base_mortality$"mid_pecent"[is.na(county_base_mortality$"mid_pecent")] <-
 county_base_mortality$"young_pecent"[is.na(county_base_mortality$"young_pecent")] <- 0
 
 # Import NCHS Urban-Rural Classification Scheme for Counties
-NCHSURCodes2013 <- read.csv("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/NCHSURCodes2013.csv")
+NCHSURCodes2013 <- read.csv("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/NCHSURCodes2013.csv")
 NCHSURCodes2013$FIPS <- str_pad(NCHSURCodes2013$FIPS, 5, pad = "0")
 
 # Import FB survey on covid-like sympton data
@@ -69,7 +69,7 @@ script <- getURL("https://raw.githubusercontent.com/cmu-delphi/delphi-epidata/ma
 eval(parse(text = script))
 
 # Import social distancing measure data
-state_policy <- read.csv("https://raw.githubusercontent.com/wxwx1993/PM_COVID/master/Data/state_policy0410.csv")
+state_policy <- read.csv("https://raw.githubusercontent.com/wxwx1993/PM_COVID/updated_data/Data/state_policy0410.csv")
 colnames(state_policy)[6] <- "stay_at_home"
 
 # merging data
