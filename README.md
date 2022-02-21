@@ -66,7 +66,7 @@ We thank all of them for making their data public and for enabling this research
 * Email: fdominic@hsph.harvard.edu
 
 <b>Terms of Use:</b><br>
-Authors/funders retain copyright (where applicable) of code on this Github repo and the article in press on Science Advances (A pre-print version posted on medRxiv). Anyone who wishes to share, reuse, remix, or adapt this material must obtain permission from the corresponding author. By using the contents on this Github repo and the article, you agree to cite:
+Authors/funders retain copyright (where applicable) of code on this Github repo and the article published on Science Advances (A pre-print version posted on medRxiv). Anyone who wishes to share, reuse, remix, or adapt this material must obtain permission from the corresponding author. By using the contents on this Github repo and the article, you agree to cite:
 
 1. Wu, X., Nethery, R. C., Sabath, M. B., Braun, D. and Dominici, F., 2020. Air pollution and COVID-19 mortality in the United States: Strengths and limitations of an ecological regression analysis. Science advances, 6(45), p.eabd4049.
 
